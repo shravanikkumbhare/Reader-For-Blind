@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "640552687317",
+    "firebase_url": "https://astromaker-74a8c.firebaseio.com",
+    "project_id": "astromaker-74a8c",
+    "storage_bucket": "astromaker-74a8c.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:640552687317:android:04b52c81b39123050b745c",
+        "android_client_info": {
+          "package_name": "com.rohitrohit.textrecognization"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "640552687317-jae270ffj87nrmvd2c247sf1o2s46hdf.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDCFXtjxd0jMtI-ZomHxMxeUntHd4dYp2Q"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "640552687317-jae270ffj87nrmvd2c247sf1o2s46hdf.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
