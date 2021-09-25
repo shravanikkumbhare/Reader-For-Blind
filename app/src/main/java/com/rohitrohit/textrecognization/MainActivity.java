@@ -30,9 +30,9 @@ import java.util.Locale;
 
 
 public class MainActivity extends AppCompatActivity {
-    Button txtButton;
+//    Button txtButton;
     ImageView imageView;
-    TextView textView;
+//    TextView textView;
     TextToSpeech textToSpeech;
     TextRecognizer recognizer = TextRecognition.getClient(TextRecognizerOptions.DEFAULT_OPTIONS);
 
@@ -42,9 +42,9 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        txtButton =findViewById(R.id.text_recognize);
+//        txtButton =findViewById(R.id.text_recognize);
         imageView =findViewById(R.id.image);
-        textView =findViewById(R.id.textView);
+//        textView =findViewById(R.id.textView);
          textToSpeech= new TextToSpeech(this, new TextToSpeech.OnInitListener() {
              @Override
              public void onInit(int status) {
@@ -95,7 +95,7 @@ public class MainActivity extends AppCompatActivity {
                             .addOnSuccessListener(new OnSuccessListener<Text>() {
                                 @Override
                                 public void onSuccess(Text visionText) {
-                                    textView.setText(visionText.getText());
+//                                    textView.setText(visionText.getText());
                                     speak(visionText.getText());
                                     Toast.makeText(MainActivity.this,"Text"+visionText.getText() ,Toast.LENGTH_LONG).show();
                                 }
@@ -106,7 +106,7 @@ public class MainActivity extends AppCompatActivity {
                                         public void onFailure(@NonNull Exception e) {
                                             // Task failed with an exception
                                             // ...
-                                            textView.setText(e.toString());
+//                                            textView.setText(e.toString());
                                             Toast.makeText(MainActivity.this,"Error"+e ,Toast.LENGTH_LONG).show();
 
                                         }
