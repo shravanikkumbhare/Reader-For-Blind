@@ -31,8 +31,8 @@ import java.util.Locale;
 
 public class MainActivity extends AppCompatActivity {
 //    Button txtButton;
-    ImageView imageView;
-//    TextView textView;
+//    ImageView imageView;
+    TextView textView;
     TextToSpeech textToSpeech;
     TextRecognizer recognizer = TextRecognition.getClient(TextRecognizerOptions.DEFAULT_OPTIONS);
 
@@ -43,8 +43,8 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 //        txtButton =findViewById(R.id.text_recognize);
-        imageView =findViewById(R.id.image);
-//        textView =findViewById(R.id.textView);
+//        imageView =findViewById(R.id.image);
+        textView =findViewById(R.id.textView);
          textToSpeech= new TextToSpeech(this, new TextToSpeech.OnInitListener() {
              @Override
              public void onInit(int status) {
@@ -88,14 +88,14 @@ public class MainActivity extends AppCompatActivity {
         } catch (IOException e) {
             e.printStackTrace();
         }
-        imageView.setImageURI(uri);
+//        imageView.setImageURI(uri);
         if(requestCode == 100){
             Task<Text> result =
                     recognizer.process(image)
                             .addOnSuccessListener(new OnSuccessListener<Text>() {
                                 @Override
                                 public void onSuccess(Text visionText) {
-//                                    textView.setText(visionText.getText());
+                                    textView.setText(visionText.getText());
                                     speak(visionText.getText());
                                     Toast.makeText(MainActivity.this,"Text"+visionText.getText() ,Toast.LENGTH_LONG).show();
                                 }
