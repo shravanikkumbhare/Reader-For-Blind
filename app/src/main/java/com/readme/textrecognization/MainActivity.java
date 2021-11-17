@@ -1,4 +1,4 @@
-package com.rohitrohit.textrecognization;
+package com.readme.textrecognization;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -8,14 +8,10 @@ import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 import android.speech.tts.TextToSpeech;
-import android.view.View;
-import android.widget.Button;
-import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import com.github.dhaval2404.imagepicker.ImagePicker;
-import com.github.dhaval2404.imagepicker.listener.DismissListener;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;

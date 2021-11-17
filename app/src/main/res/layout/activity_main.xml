@@ -13,14 +13,14 @@
         android:layout_height="match_parent"
         android:layout_marginTop="25dp"
         android:layout_marginBottom="25dp"
+        android:background="@android:color/transparent"
         android:fontFamily="sans-serif-smallcaps"
         android:padding="5dp"
         android:scrollbars="vertical"
-        android:background="@android:color/transparent"
-        android:textColor="@android:color/holo_red_dark"
-
-
         android:text="@string/textview"
+
+
+        android:textColor="@android:color/holo_red_dark"
         android:textIsSelectable="true"
         android:textSize="40sp"
         app:layout_constraintBottom_toBottomOf="parent"

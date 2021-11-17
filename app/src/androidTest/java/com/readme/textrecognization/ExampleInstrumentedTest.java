@@ -1,4 +1,4 @@
-package com.rohitrohit.textrecognization;
+package com.readme.textrecognization;
 
 import android.content.Context;
 
