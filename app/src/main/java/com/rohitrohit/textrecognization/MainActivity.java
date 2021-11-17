@@ -111,14 +111,7 @@ public class MainActivity extends AppCompatActivity {
 
                                         }
                                     });
-
-
-
-
-
         }
-
-
     }
     private void speak(String text) {
         textToSpeech.setPitch(0.9f);
