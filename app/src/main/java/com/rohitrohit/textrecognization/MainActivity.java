@@ -30,27 +30,20 @@ import java.util.Locale;
 
 
 public class MainActivity extends AppCompatActivity {
-//    Button txtButton;
-//    ImageView imageView;
     TextView textView;
     TextToSpeech textToSpeech;
     TextRecognizer recognizer = TextRecognition.getClient(TextRecognizerOptions.DEFAULT_OPTIONS);
-
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-//        txtButton =findViewById(R.id.text_recognize);
-//        imageView =findViewById(R.id.image);
         textView =findViewById(R.id.textView);
          textToSpeech= new TextToSpeech(this, new TextToSpeech.OnInitListener() {
              @Override
              public void onInit(int status) {
                     if (status == TextToSpeech.SUCCESS){
                         textToSpeech.setLanguage(Locale.ENGLISH);
-
                     }
              }
          });
@@ -59,22 +52,6 @@ public class MainActivity extends AppCompatActivity {
         ImagePicker.with(MainActivity.this)
                 .cameraOnly()
                 .start(100);
-
-//        txtButton.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-////                ImagePicker.with(MainActivity.this)
-////                        .crop()
-////                        .galleryOnly()//Crop image(Optional), Check Customization for more option
-////                        .start(100);
-//
-//            }
-//        });
-
-
-
-
-
     }
 
     @Override
@@ -88,25 +65,30 @@ public class MainActivity extends AppCompatActivity {
         } catch (IOException e) {
             e.printStackTrace();
         }
-//        imageView.setImageURI(uri);
+
         if(requestCode == 100){
             Task<Text> result =
                     recognizer.process(image)
                             .addOnSuccessListener(new OnSuccessListener<Text>() {
                                 @Override
                                 public void onSuccess(Text visionText) {
-                                    textView.setText(visionText.getText());
-                                    speak(visionText.getText());
-                                    Toast.makeText(MainActivity.this,"Text"+visionText.getText() ,Toast.LENGTH_LONG).show();
+                                    if(visionText.getText().equals(""))
+                                    {
+                                        textView.setText("Text Not found on the image");
+                                        speak("Text Not found on the image");
+                                    }
+                                    else {
+                                        textView.setText(visionText.getText());
+                                        speak(visionText.getText());
+                                    }
+
+//                                    Toast.makeText(MainActivity.this,"Text"+visionText.getText() ,Toast.LENGTH_LONG).show();
                                 }
                             })
                             .addOnFailureListener(
                                     new OnFailureListener() {
                                         @Override
                                         public void onFailure(@NonNull Exception e) {
-                                            // Task failed with an exception
-                                            // ...
-//                                            textView.setText(e.toString());
                                             Toast.makeText(MainActivity.this,"Error"+e ,Toast.LENGTH_LONG).show();
 
                                         }
@@ -117,5 +99,17 @@ public class MainActivity extends AppCompatActivity {
         textToSpeech.setPitch(0.9f);
         textToSpeech.setSpeechRate(0.7f);
         textToSpeech.speak(text, TextToSpeech.QUEUE_FLUSH, null);
+    }
+
+    @Override
+    protected void onStop() {
+        super.onStop();
+        textToSpeech.stop();
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        textToSpeech.stop();
     }
 }
